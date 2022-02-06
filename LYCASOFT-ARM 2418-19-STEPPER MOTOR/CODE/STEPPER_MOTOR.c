@@ -1,0 +1,45 @@
+#include <lpc214x.h>
+#include "LPC2148_delay.h"
+#include "LPC2148_LCD_4_BIT_HEADER_FILE.h"
+
+int f1=0,f2=0;
+
+int main()
+{
+	PINSEL0 = 0X00000000;
+	PINSEL1 = 0X00000000;
+	PINSEL2 = 0X00000000;
+	
+	IODIR0 = 0X0000000F;
+	
+	while(1)
+	{
+		IOCLR0 = 0X00000008;
+		IOSET0 = 0X00000009;
+		delay(500);
+		IOCLR0 = 0X00000009;
+		IOSET0 = 0X00000001;
+		delay(500);
+		
+		IOCLR0 = 0X00000001;
+		IOSET0 = 0X00000005;
+		delay(500);
+		IOCLR0 = 0X00000005;
+		IOSET0 = 0X00000004;
+		delay(500);
+		
+		IOCLR0 = 0X00000004;
+		IOSET0 = 0X00000006;
+		delay(500);
+		IOCLR0 = 0X00000006;
+		IOSET0 = 0X00000002;
+		delay(500);
+		
+		IOCLR0 = 0X00000002;
+		IOSET0 = 0X0000000A;
+		delay(500);
+		IOCLR0 = 0X0000000A;
+		IOSET0 = 0X00000008;
+		delay(500);
+	}
+}
